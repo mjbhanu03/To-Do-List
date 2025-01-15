@@ -5,6 +5,11 @@ const TodoList = () => {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
 
+  // For Edit Functionality States
+  const [editIndex, setEditIndex] = useState(-1);
+  const [editTask, setEditTask] = useState('');
+  const [editDate, setEditDate] = useState('');
+
   const addTask = (e) => {
     e.preventDefault();
     if(task.trim() && date) {
@@ -15,8 +20,22 @@ const TodoList = () => {
   }
 
   const deleteTask = (index) => {
-    const filteredTask = tasks.filter((_, i) => i !== index);
+    const filteredTask = tasks.filter((currentValue, currentIndex) => currentIndex !== index);
     setTasks(filteredTask);
+  }
+
+  const startEdit = (index) => {
+    setEditIndex(index);
+    setEditTask(tasks[index].name);
+    setEditDate(tasks[index].date);
+  }
+
+  const saveEdit = () => {
+    const updatedTasks = tasks.map((task, index) => 
+      index === editIndex ? {name: editTask, date: editDate} : task
+    );
+    setTasks(updatedTasks);
+    setEditIndex(-1);
   }
 
   return (
@@ -38,11 +57,11 @@ const TodoList = () => {
             type="text"
             className={todostyles.taskInput}
             placeholder="Enter your Task Here"
-            value={task}
+            value={editTask==0 ? task : editTask}
             onChange={(e) => setTask(e.target.value)}
           />
           <input type="date" className={todostyles.dateInput}
-          value={date}
+          value={editDate==0 ? date : editDate}
           onChange={(e) => setDate(e.target.value)}
           />
           <button type="submit" className={todostyles.submitBtn}>
@@ -57,6 +76,7 @@ const TodoList = () => {
             <th>Sr No.</th>
             <th>Name</th>
             <th>Date</th>
+            <th colSpan={2}>Action</th>
           </tr>
         
         {tasks.map((task, index) => (
@@ -64,6 +84,12 @@ const TodoList = () => {
             <td>{index+1}</td>
             <td>{task.name}</td>
             <td>{task.date}</td>
+            <td>
+              <button onClick={() => deleteTask(index)} className={todostyles.deleteBtn}>Delete</button>
+            </td>
+            <td>
+              <button onClick={() => startEdit(index)} className={todostyles.updateBtn}>Update</button>
+            </td>
           </tr>
         ))
         }

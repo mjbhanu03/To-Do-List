@@ -38,3 +38,29 @@ th {
     background-color: #6969d7;
   color: white;
 }
+
+.deleteBtn {
+
+  background-color: rgb(221, 97, 97);
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 15px;
+}
+.deleteBtn:hover {
+  background-color: rgb(239, 56, 56);
+  color: white;
+  cursor: pointer;
+}
+.updateBtn {
+  background-color: rgb(115, 88, 234);
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 15px;
+}
+.updateBtn:hover {
+  background-color: rgb(55, 45, 231);
+  color: white;
+  cursor: pointer;
+}
