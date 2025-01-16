@@ -4,8 +4,8 @@ This is a **To-Do List** application built as a practice project using **React**
 
 ## Features
 
-- **Create** tasks with title and description.
-- **Read** tasks from the database.
+- **Create** tasks with title and date.
+- **Read** tasks from the state.
 - **Update** existing tasks.
 - **Delete** tasks.
 - Simple **user interface** with real-time updates.
