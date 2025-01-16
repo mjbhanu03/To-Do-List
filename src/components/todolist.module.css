@@ -1,27 +1,32 @@
 input {
   border: 1px solid black;
   border-radius: 30px;
-  margin: 10px;
+  margin: 5px;
   padding: 20px;
   font-size: 18px;
 }
 
 .taskInput {
-  width: 45%;
+  width: 39%;
 }
 
 .dateInput {
-  width: 10%;
+  width: 25%;
   cursor: pointer;
 }
 
 .submitBtn {
-  background: #6969d7;
+  background: #9191d2;
   color: white;
-  border-color: #6969d7;
   border-radius: 30px;
+  border: none;
   width: 100px;
   height: 50px;
+  cursor: pointer;
+}
+.submitBtn:hover {
+  background: #6969d7;
+  color: white;
   cursor: pointer;
 }
 
